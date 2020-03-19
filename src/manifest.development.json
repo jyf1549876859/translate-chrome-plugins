@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "translate-plugins",
+    "description": "translate",
+    "version": "0.0.1",
+    "browser_action": {
+        "default_popup": "popup.html",
+        "permissions": ["background"]
+    },
+    "permissions": [ // 插件运行环境
+        "http://*/",
+        "https://*/"
+    ],
+    "background": { // background后台相关配置
+        "scripts": [
+            "js/jquery.js", // 先加载jq
+            "js/background.js"   
+        ]
+    },
+    "content_scripts": [{
+        "matches": [
+            "http://*/*",
+            "https://*/*"
+        ],
+        "js": [
+            "js/options.js"
+        ],
+        "run_at": "document_end"
+    }],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
