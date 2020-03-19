@@ -15,7 +15,6 @@ export default {
   mounted() {
     this.loadElementCss()
     this.bac = chrome.extension.connect({name: "ConToBg"});//建立通道，并给通道命名
-    console.log(this.bac,'this.bacthis.bacthis.bac')
     this.bindEv()
     document.querySelector('body').oncontextmenu = e => {
       e.preventDefault()

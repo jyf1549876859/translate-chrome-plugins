@@ -8,7 +8,7 @@ window.changeLangType = (type) => {
 }
 
 $(document).ready(function(){
-  chrome.extension.onConnect.addListener(function(cab) {//监听是否连接，bac为Port对象
+  chrome.extension.onConnect.addListener(function(cab) {//监听是否连接，cab为Port对象
     cab.onMessage.addListener(function(res) {
       if(res.msg) {
         $.ajax({
